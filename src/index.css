@@ -1,5 +1,4 @@
-
-* {
+/* * {
   box-sizing: border-box;
   margin: 5px;
 }
@@ -22,9 +21,6 @@ input {
   display: flex;
   flex-direction: column;
 }
-/* .App > * {
-  margin: 10px;
-} */
 .container {
   width: 50vw;
   height: 30px;
@@ -42,10 +38,17 @@ input {
   place-items: center;
   border-radius: 20px;
   margin: auto;
-  background: linear-gradient(to left, #39aa0f, #37ba1f, #32ca2d, #28da3a, #12eb48); 
+  background: linear-gradient(
+    to left,
+    #39aa0f,
+    #37ba1f,
+    #32ca2d,
+    #28da3a,
+    #12eb48
+  );
   box-shadow: 0 3px 3px -5px #22c1c3, 0 2px 5px #22c1c3;
   color: black;
   position: absolute;
   transition: 1s ease 0s;
   z-index: 100;
-}
+} */

@@ -5,26 +5,27 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: 1,
-      title: "Finish Progate React Course",
+      title: "Belajar Web Development",
       completed: false,
     },
     {
       id: 2,
-      title: "Have lunch with Guru Domba",
+      title: "Bermain Futsal",
       completed: false,
     },
     {
       id: 3,
-      title: "Study React with Ninja Ken",
+      title: "Belajar Mandiri",
       completed: false,
     },
   ]);
 
-  console.log(todos);
+  // console.log(todos);
 
   return (
-    <div>
-      <h1>My Todo List</h1>
+    //  CSS
+    <div style={{ textAlign: "center", padding: "12px" }}>
+      <h1 style={{ fontSize: "36px" }}>My Todo List</h1>
       <Todos todos={todos} />
     </div>
   );
