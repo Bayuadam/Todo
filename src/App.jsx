@@ -6,7 +6,7 @@ function App() {
     {
       id: 1,
       title: "Belajar Web Development",
-      completed: false,
+      completed: true,
     },
     {
       id: 2,
@@ -20,13 +20,21 @@ function App() {
     },
   ]);
 
-  // console.log(todos);
+  const toggleCompleted = (todoId) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === todoId) {
+        todo.completed = !todo.completed;
+      }
+      return todo;
+    });
+    setTodos(updatedTodos);
+  };
 
   return (
     //  CSS
     <div style={{ textAlign: "center", padding: "12px" }}>
       <h1 style={{ fontSize: "36px" }}>My Todo List</h1>
-      <Todos todos={todos} />
+      <Todos todos={todos} toggleCompleted={toggleCompleted} />
     </div>
   );
 }
