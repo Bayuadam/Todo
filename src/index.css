@@ -52,3 +52,10 @@ input {
   transition: 1s ease 0s;
   z-index: 100;
 } */
+
+body {
+  background-color: #e5e5f7;
+  opacity: 1;
+  background-image: radial-gradient(#444cf7 0.3px, #e5e5f7 0.3px);
+  background-size: 10px 10px;
+}
