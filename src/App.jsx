@@ -9,19 +9,16 @@ function App() {
       id: 1,
       title: "Belajar Web Development",
       completed: true,
-      deleted: false,
     },
     {
       id: 2,
       title: "Bermain Futsal",
       completed: false,
-      deleted: false,
     },
     {
       id: 3,
       title: "Belajar Mandiri",
       completed: false,
-      deleted: false,
     },
   ]);
 
@@ -36,11 +33,10 @@ function App() {
   };
 
   const deleteTodo = (todoId) => {
-    const deleteTodos = todos.map((todo) => {
-      if (todo.id === todoId) {
-        todo.deleted = true;
+    const deleteTodos = todos.filter((todo) => {
+      if (todo.id !== todoId) {
+        return todo;
       }
-      return todo;
     });
     setTodos(deleteTodos);
   };
@@ -61,7 +57,7 @@ function App() {
     }
 
     const newTodo = {
-      id: todos.length + 1,
+      id: todos[todos.length - 1].id + 1,
       title: todoTitle,
       completed: false,
       deleted: false,
@@ -74,7 +70,7 @@ function App() {
   return (
     <div style={{ textAlign: "center", padding: "12px" }}>
       <h1 style={{ fontSize: "36px" }}>My Todo List</h1>
-      <TodoForm addTodo={addTodo} />
+      <TodoForm todos={todos} addTodo={addTodo} />
       <Todos
         todos={todos}
         toggleCompleted={toggleCompleted}

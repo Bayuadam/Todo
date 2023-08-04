@@ -3,9 +3,15 @@ import TodoItem from "./TodoItem";
 
 const Todos = (props) => {
   return (
-    <div style={{ width: "40%", margin: "0 auto" }}>
+    <div
+      style={{
+        width: "40%",
+        margin: "0 auto",
+      }}
+    >
       {props.todos.map((todo) => {
-        return !todo.deleted ? (
+        // return !todo.deleted ? (
+        return (
           <TodoItem
             key={todo.id}
             todo={todo}
@@ -13,7 +19,8 @@ const Todos = (props) => {
             toggleDeleted={props.toggleDeleted}
             toggleEdited={props.toggleEdited}
           />
-        ) : null;
+        );
+        // ) : null;
       })}
     </div>
   );

@@ -9,7 +9,10 @@ const MySwal = withReactContent(Swal);
 const TodoItem = (props) => {
   const getTodoTitleStyle = () => {
     if (props.todo.completed === true) {
-      return { textDecoration: "line-through", paddingTop: "10px" };
+      return {
+        textDecoration: "line-through",
+        paddingTop: "10px",
+      };
     } else {
       return { textDecoration: "none", paddingTop: "10px" };
     }
@@ -17,9 +20,13 @@ const TodoItem = (props) => {
 
   return (
     <div
+      // background-color #aee1f9;
+      // background-image linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%);
+
       style={{
-        background: "#fff",
-        border: "10px solid #f4f4f4",
+        backgroundColor: "#aee1f9",
+        backgroundImage: "linear-gradient(315deg, #aee1f9 0%, #f6ebe6 74%)",
+        border: "1px outset #3AC2E0",
         fontSize: "24px",
         display: "flex",
         justifyContent: "space-between",
@@ -45,24 +52,25 @@ const TodoItem = (props) => {
           onClick={() => {
             MySwal.fire({
               title: "Edit Todo List",
-              inputLabel: "Masukan Text",
+              inputLabel: "Fill The Input",
               input: "text",
               inputValidator: (value) => {
                 if (!value) {
-                  return "Anda Harus Memasukan Todo List";
+                  return "Please Fill out this field!";
                 }
               },
+              icon: "warning",
               showCancelButton: true,
               confirmButtonText: "Edit",
               inputValue: props.todo.title,
               confirmButtonColor: "#198754",
               cancelButtonColor: "#dc3741",
-              cancelButtonText: "Tidak",
+              cancelButtonText: "Cancel",
             }).then((result) => {
               if (result.isConfirmed && result.value) {
                 props.toggleEdited(props.todo.id, result.value);
                 MySwal.fire({
-                  title: "Berhasil Mengedit Todo List",
+                  title: "Success Edit Data",
                   icon: "success",
                   timer: 1500,
                   showConfirmButton: false,
@@ -76,18 +84,18 @@ const TodoItem = (props) => {
         <Dropdown.Item
           onClick={() => {
             MySwal.fire({
-              title: "Hapus Todo",
-              text: "Apakah Anda Yakin Ingin Menghapus Data Ini?",
+              title: "Delete Todo",
+              text: "Are you sure you want delete this item ?",
               icon: "question",
               showDenyButton: true,
-              confirmButtonText: "Ya",
+              confirmButtonText: "Yes",
               confirmButtonColor: "#198754",
-              denyButtonText: "Tidak",
+              denyButtonText: "No",
             }).then((result) => {
               if (result.isConfirmed) {
                 props.toggleDeleted(props.todo.id);
                 MySwal.fire({
-                  title: "Berhasil Menghapus Todo List",
+                  title: "Success Delete Data",
                   icon: "success",
                   timer: 1500,
                   showConfirmButton: false,
